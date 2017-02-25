@@ -59,9 +59,9 @@
                                aria-expanded="false">
                                 {{ Auth::user()->email }} <span class="caret"></span>
                             </a>
-
                             <ul class="dropdown-menu" role="menu">
                                 <li>
+                                    <a href="search">Search</a>
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

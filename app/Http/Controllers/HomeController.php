@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 
-
 class HomeController extends Controller
 {
     /**
@@ -12,7 +11,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
     }
 
     /**
@@ -20,8 +18,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function search()
+    {
+        return view('search');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
-        return view('home');
+        return view('welcome');
     }
 }

@@ -20,6 +20,7 @@ Route::get('/', 'HomeController@index');
 
 Route::group(['middleware' => ['auth']], function () {
     //
+    Route::get('/search', 'HomeController@search');
     Route::get('usernames/search', 'UsernameController@search');
     Route::get('usernames', 'UsernameController@index');
     Route::post('usernames', 'UsernameController@store');
