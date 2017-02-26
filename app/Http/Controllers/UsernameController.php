@@ -20,7 +20,7 @@ class UsernameController extends Controller
 
         switch ($response->status) {
             case 200:
-                return new JsonResponse(['message' => 'Username is taken'], 404);
+                return new JsonResponse(['message' => 'Username is not currently available'], 404);
                 break;
             case 204:
                 return new JsonResponse(['message' => 'Username is available'], 200);
