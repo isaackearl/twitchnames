@@ -38,6 +38,8 @@ class SearchUsername implements ShouldQueue
 
         if ($response->status === 204) {
             $this->username->user->notify(new UsernameIsAvailable($this->username));
+            $this->username->is_available = 1;
+            $this->username->save();
         }
     }
 }
