@@ -52,14 +52,14 @@ class UsernameController extends Controller
             return new JsonResponse(['message' => 'You have already included this username'], 422);
         }
 
-        if(Auth::user()->usernames->count() >= 10) {
+        if (Auth::user()->usernames->count() >= 10) {
             return new JsonResponse(['message' => 'Sorry!  There is a 10 username limit per user'], 422);
         }
 
-        Username::create([
+        Username::withTrashed()->firstOrCreate([
             'user_id' => $userId,
             'username' => $userName
-        ]);
+        ])->restore();
 
         return new JsonResponse(['message' => 'Saved!'], 200);
     }

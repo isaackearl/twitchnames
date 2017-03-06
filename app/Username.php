@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Username
@@ -24,6 +25,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Username extends Model
 {
+
+    use SoftDeletes;
+
     //
     protected $fillable = [
         'user_id',

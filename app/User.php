@@ -53,6 +53,6 @@ class User extends Authenticatable
      */
     public function usernames()
     {
-        return $this->hasMany(Username::class);
+        return $this->hasMany(Username::class)->orderBy('updated_at', 'asc');
     }
 }
