@@ -4,11 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Recently it became possible to change your username on twitch.tv. Unfortunately however, for many of us the usernames we wish to use are not available. This site is just a convenient way to get notified if a username you wish to use ever becomes available."/>
+    <meta name="keywords" content="twitch username check checker usernames twitch.tv"/>
+    <meta name="robots" content="index, follow">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Twitch Username Checker') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
