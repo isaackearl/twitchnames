@@ -47,8 +47,8 @@ class SearchUsernames extends Command
             $job = (new SearchUsername($username))
                 ->delay(
                     Carbon::now()
-                        ->addMinutes(rand(0, 30))
-                        ->addSeconds(rand(0, 60))
+                        ->addMinutes(rand(0, 360))
+                        ->addSeconds(rand(0, 59))
                 );
 
             dispatch($job);
