@@ -24,7 +24,7 @@ class UsernameValidationRequest extends FormRequest
     public function rules()
     {
         return [
-            'search' => 'min:3|max:25|required|regex:/^[a-zA-Z0-9][a-zA-Z0-9_]{2,25}$/'
+            'search' => 'min:4|max:25|required|regex:/^[a-zA-Z0-9][a-zA-Z0-9_]{3,25}$/'
         ];
     }
 }
