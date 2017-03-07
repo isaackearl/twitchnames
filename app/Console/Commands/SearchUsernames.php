@@ -26,7 +26,6 @@ class SearchUsernames extends Command
     /**
      * Create a new command instance.
      *
-     * @return void
      */
     public function __construct()
     {
@@ -36,7 +35,7 @@ class SearchUsernames extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      */
     public function handle()
     {
