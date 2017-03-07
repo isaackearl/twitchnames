@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Jobs\SearchUsername;
 use App\Username;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class SearchUsernames extends Command
@@ -43,7 +44,14 @@ class SearchUsernames extends Command
         $usernames = Username::all();
 
         foreach ($usernames as $username) {
-            dispatch(new SearchUsername($username));
+            $job = (new SearchUsername($username))
+                ->delay(
+                    Carbon::now()
+                        ->addMinutes(rand(0, 30))
+                        ->addSeconds(rand(0, 60))
+                );
+
+            dispatch($job);
             $this->comment('dispatching search job for ' . $username->username);
         }
 
