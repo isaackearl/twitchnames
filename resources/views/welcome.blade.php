@@ -9,16 +9,25 @@
                     <div class="panel-body">
 
                         <b>What is this site about?</b>
-                        <p>Recently it became possible to change your username on twitch.tv.  Unfortunately however, for many of
-                        us the usernames we wish to use are not available.  This site is just a convenient way to get notified if a
-                        username you wish to use ever becomes available.</p>
+                        <p>Recently it became possible to change your username on twitch.tv. Unfortunately however, for
+                            many of
+                            us the usernames we wish to use are not available. This site is just a convenient way to get
+                            notified if a
+                            username you wish to use ever becomes available.</p>
                         <b>Will my desired username ever become available?</b>
-                        <p>I believe it will.  Twitch has said that they are releasing old justin.tv names in batches, and that other names will become available
-                        if they are not used in a year.</p>
+                        <p>I believe it will. Twitch has said that they are releasing old justin.tv names in batches,
+                            and that other names will become available
+                            if they are not used in a year.</p>
                         <b>What do I have to do?</b>
-                        <p>Simply register with your email, and add a username you'd like to have, and you'll be notified if it ever becomes available!</p>
+                        <p>Simply register with your email, and add a username you'd like to have, and you'll be
+                            notified if it ever becomes available!</p>
+                        <b>What if another person wants the same username as me?</b>
+                        <p>Though unlikely, it is possible if you choose a common username that another person could be
+                            searching for the same username. Once notifications of availability are sent out, it is
+                            first come first serve, so be sure to snatch your desired username quickly.</p>
                         <b>Wow thanks! Is this free to use?</b>
-                        <p>Of course, however if you wish to donate after you actually get a name you are waiting for... that would be amazing.</p> <a href="http://paypal.me/isaackearl">Donate</a>
+                        <p>Of course, however if you wish to donate after you actually get a name you are waiting for...
+                            that would be amazing.</p> <a href="http://paypal.me/isaackearl">Donate</a>
 
                     </div>
                 </div>
