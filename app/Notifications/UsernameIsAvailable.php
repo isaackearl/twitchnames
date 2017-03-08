@@ -50,7 +50,8 @@ class UsernameIsAvailable extends Notification implements ShouldQueue
             ->line('The username ' . $this->username->username . ' has recently become available.')
             ->line('Grab it quick before someone else does!')
             ->action('Go to Twitch to claim it now!', 'https://www.twitch.tv/settings/profile')
-            ->line('Thank you for using my application.  If you get the username that you are searching for, please consider donating! ' . 'https://paypal.me/isaackearl');
+            ->line('If you would like emails about this username to stop, please remove this username from your saved list.')
+            ->line('Thank you for using my application.  If you get the username that you are searching for, please consider donating! https://paypal.me/isaackearl');
     }
 
 }
