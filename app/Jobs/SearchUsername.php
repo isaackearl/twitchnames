@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Notifications\UsernameIsAvailable;
+use App\Notifications\UsernameFound;
 use App\Username;
 use Curl;
 use Illuminate\Bus\Queueable;
@@ -37,7 +37,7 @@ class SearchUsername implements ShouldQueue
         $response = Curl::to('https://passport.twitch.tv/usernames/' . $this->username->username)->returnResponseObject()->get();
 
         if ($response->status === 204) {
-            $this->username->user->notify(new UsernameIsAvailable($this->username));
+            $this->username->user->notify(new UsernameFound($this->username));
             $this->username->is_available = true;
             $this->username->has_been_found = true;
         } else {
