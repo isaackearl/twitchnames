@@ -14,6 +14,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string $remember_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property int $username_limit
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Username[] $usernames
  * @method static \Illuminate\Database\Query\Builder|\App\User whereCreatedAt($value)
@@ -22,6 +23,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Query\Builder|\App\User wherePassword($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User whereRememberToken($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereUsernameLimit($value)
  * @mixin \Eloquent
  */
 class User extends Authenticatable
@@ -36,6 +38,7 @@ class User extends Authenticatable
     protected $fillable = [
         'email',
         'password',
+        'username_limit'
     ];
 
     /**

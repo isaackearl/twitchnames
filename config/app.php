@@ -234,4 +234,9 @@ return [
         'Curl' => Ixudra\Curl\Facades\Curl::class,
     ],
 
+    /**
+     * Custom settings
+     */
+
+    'username_limit' => 4
 ];

@@ -21,6 +21,9 @@
                         <b>What do I have to do?</b>
                         <p>Simply register with your email, and add a username you'd like to have, and you'll be
                             notified if it ever becomes available!</p>
+                        <b>Can I add as many usernames as I want?</b>
+                        <p>Unfortunately I've been forced to put a limit on the number of usernames each user can save.
+                            I'm doing this because we don't want to overwhelm twitch.tv with requests.</p>
                         <b>What if another person wants the same username as me?</b>
                         <p>Though unlikely, it is possible if you choose a common username that another person could be
                             searching for the same username. Once notifications of availability are sent out, it is

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UsernameValidationRequest;
+use App\User;
 use App\Username;
 use Auth;
 use Illuminate\Http\JsonResponse;
@@ -46,18 +47,21 @@ class UsernameController extends Controller
     public function store(UsernameValidationRequest $usernameValidationRequest)
     {
         $userName = $usernameValidationRequest->get('search');
-        $userId = Auth::user()->id;
+        /** @var User $user */
+        $user = Auth::user();
 
-        if (Username::whereUserId($userId)->whereUsername($userName)->first()) {
+        if (Username::whereUserId($user->id)->whereUsername($userName)->first()) {
             return new JsonResponse(['message' => 'You have already included this username'], 422);
         }
 
-        if (Auth::user()->usernames->count() >= 10) {
-            return new JsonResponse(['message' => 'Sorry!  There is a 10 username limit per user'], 422);
+        if ($user->usernames->count() >= $user->username_limit) {
+            return new JsonResponse([
+                'message' => 'Sorry!  There is a ' . $user->username_limit . ' username limit per user'
+            ], 422);
         }
 
         Username::withTrashed()->firstOrCreate([
-            'user_id' => $userId,
+            'user_id' => $user->id,
             'username' => $userName
         ])->restore();
 
