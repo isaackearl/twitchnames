@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading panel-title">Twitch Username Search</div>
+                    <div class="panel-heading panel-title">Twitch Username Search (FAQ)</div>
                     <div class="panel-body">
 
                         <b>What is this site about?</b>
@@ -28,10 +28,13 @@
                         <p>Though unlikely, it is possible if you choose a common username that another person could be
                             searching for the same username. Once notifications of availability are sent out, it is
                             first come first serve, so be sure to snatch your desired username quickly.</p>
+                        <b>Any other question, or comments?</b>
+                        <p>Feel free to <a href="mailto:twitch.username.checker@gmail.com">send me a message</a>. I try
+                            and check and respond when I can.</p>
                         <b>Wow thanks! Is this free to use?</b>
                         <p>Of course, however if you wish to donate after you actually get a name you are waiting for...
-                            that would be amazing.</p> <a href="http://paypal.me/isaackearl">Donate</a>
-
+                            that would be amazing.</p>
+                        <a href="http://paypal.me/isaackearl">Donate</a>
                     </div>
                 </div>
             </div>

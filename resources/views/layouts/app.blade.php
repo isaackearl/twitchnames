@@ -57,6 +57,7 @@
                     @if (Auth::guest())
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="mailto:twitch.username.checker@gmail.com">Contact Me</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -66,6 +67,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a href="search">Search</a>
+                                    <a href="mailto:twitch.username.checker@gmail.com">Contact Me</a>
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
