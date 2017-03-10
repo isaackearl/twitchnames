@@ -17,6 +17,7 @@ import axios from "axios";
 const app = new Vue({
     el: '#app',
 
+    // init
     data: {
         search: '',
         hasSuccess: false,
@@ -26,11 +27,15 @@ const app = new Vue({
         usernameList: [],
         errorMessages: [],
     },
+    // do this on load
     mounted: function () {
         axios.get('/usernames')
             .then(response => this.usernameList = response.data);
     },
+    // setup methods
     methods: {
+
+        // do a search of a name
         searchNames: function () {
             const vm = this;
             vm.searching = true;
@@ -39,19 +44,25 @@ const app = new Vue({
                     search: vm.search
                 }
             })
+            // Found the username... no need to add to list!
                 .then(function (response) {
                     console.log(response);
+                    vm.showButton = false;
                     vm.hasSuccess = true;
                     vm.hasError = false;
                     vm.errorMessages = [];
                     vm.searching = false;
                 })
+                // didn't find
                 .catch(function (error) {
                     if (error.response) {
+
+                        // validation error or other error
                         if (error.response.data.search) {
                             vm.errorMessages = error.response.data.search;
                         }
 
+                        // not available error
                         if (error.response.data.message) {
                             vm.errorMessages = [error.response.data.message];
                             vm.showButton = true; // if we get this type of error then show the button.

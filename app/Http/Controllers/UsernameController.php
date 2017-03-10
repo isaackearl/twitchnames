@@ -54,7 +54,7 @@ class UsernameController extends Controller
             return new JsonResponse(['message' => 'You have already included this username'], 422);
         }
 
-        if ($user->usernames->count() >= $user->username_limit) {
+        if ($user->usernames->where()->count() >= $user->username_limit) {
             return new JsonResponse([
                 'message' => 'Sorry!  There is a ' . $user->username_limit . ' username limit per user'
             ], 422);

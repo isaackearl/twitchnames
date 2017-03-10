@@ -11211,6 +11211,7 @@ __webpack_require__(30);
 var app = new Vue({
     el: '#app',
 
+    // init
     data: {
         search: '',
         hasSuccess: false,
@@ -11220,6 +11221,7 @@ var app = new Vue({
         usernameList: [],
         errorMessages: []
     },
+    // do this on load
     mounted: function mounted() {
         var _this = this;
 
@@ -11227,7 +11229,10 @@ var app = new Vue({
             return _this.usernameList = response.data;
         });
     },
+    // setup methods
     methods: {
+
+        // do a search of a name
         searchNames: function searchNames() {
             var vm = this;
             vm.searching = true;
@@ -11235,18 +11240,26 @@ var app = new Vue({
                 params: {
                     search: vm.search
                 }
-            }).then(function (response) {
+            })
+            // Found the username... no need to add to list!
+            .then(function (response) {
                 console.log(response);
+                vm.showButton = false;
                 vm.hasSuccess = true;
                 vm.hasError = false;
                 vm.errorMessages = [];
                 vm.searching = false;
-            }).catch(function (error) {
+            })
+            // didn't find
+            .catch(function (error) {
                 if (error.response) {
+
+                    // validation error or other error
                     if (error.response.data.search) {
                         vm.errorMessages = error.response.data.search;
                     }
 
+                    // not available error
                     if (error.response.data.message) {
                         vm.errorMessages = [error.response.data.message];
                         vm.showButton = true; // if we get this type of error then show the button.
