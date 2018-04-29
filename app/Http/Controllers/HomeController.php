@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Username;
+
 class HomeController extends Controller
 {
     /**
@@ -28,6 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $foundNameCount = Username::withTrashed()->whereHasBeenFound(true)->count();
+        return view('welcome', ['foundNameCount' => $foundNameCount]);
     }
 }
