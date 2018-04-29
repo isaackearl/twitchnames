@@ -13,11 +13,16 @@
                             way to get
                             notified if a username you wish to use ever becomes available.</p>
                         <b>Will my desired username ever become available?</b>
-                        <p>I Have NO IDEA, I am not affiliated with twitch.tv. However this site has been operating and
-                            checking for thousands of usernames every day for over a year and so far Twitch.tv has released very
-                            few usernames for reuse.</p>
+                        <p>I Have NO IDEA, I am not affiliated with twitch.tv. Twitch.tv has been VERY SLOW to release
+                            old usernames. </p>
                         <b>How many usernames has this website found so far?</b>
-                        <p>{{$foundNameCount}}</p>
+                        @if($foundNameCount < 10)
+                            <p>Only {{$foundNameCount}}... This site has been searching for thousands of usernames
+                                everyday since the twitch username change announcement. Twitch has yet to release any of
+                                the batches of old names they said they would release.</p>
+                        @else
+                            <p>{{$foundNameCount}}</p>
+                        @endif
                         <b>What do I have to do?</b>
                         <p>Simply register with your email, and add a username you'd like to have, and you'll be
                             notified if it ever becomes available!</p>
