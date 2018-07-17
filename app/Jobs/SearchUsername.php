@@ -40,6 +40,7 @@ class SearchUsername implements ShouldQueue
         if ($response->status === 204) {
             $this->username->user->notify(new UsernameFound($this->username));
             $this->username->is_available = true;
+            $this->username->found_count += 1;
             if ($this->username->has_been_found == false) {
                 $this->username->has_been_found = true;
                 $this->username->found_date = Carbon::now();

@@ -40,7 +40,7 @@ class SearchUsernames extends Command
     public function handle()
     {
         $this->comment('starting search...');
-        $usernames = Username::all();
+        $usernames = Username::where('found_count', '<', 3)->get();
 
         foreach ($usernames as $username) {
             $job = (new SearchUsername($username))

@@ -16,13 +16,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $deleted_at
  * @property bool $has_been_found
- * @property string|null $found_date
+ * @property \Carbon\Carbon|null $found_date
+ * @property int $found_count
+ * @property-read mixed $human_readable_found_date
  * @property-read \App\User $user
  * @method static bool|null forceDelete()
  * @method static \Illuminate\Database\Query\Builder|\App\Username onlyTrashed()
  * @method static bool|null restore()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Username whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Username whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Username whereFoundCount($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Username whereFoundDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Username whereHasBeenFound($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Username whereId($value)
