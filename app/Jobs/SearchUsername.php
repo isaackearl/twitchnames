@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Notifications\UsernameFound;
 use App\Username;
+use Carbon\Carbon;
 use Curl;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -39,7 +40,10 @@ class SearchUsername implements ShouldQueue
         if ($response->status === 204) {
             $this->username->user->notify(new UsernameFound($this->username));
             $this->username->is_available = true;
-            $this->username->has_been_found = true;
+            if ($this->username->has_been_found == false) {
+                $this->username->has_been_found = true;
+                $this->username->found_date = Carbon::now();
+            }
         } else {
             $this->username->is_available = false;
         }

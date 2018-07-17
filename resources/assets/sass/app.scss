@@ -29,3 +29,9 @@
     -webkit-transform: rotate(360deg);
   }
 }
+
+li.is-success {
+  border-color: #4e9f15;
+  background-color: $brand-success;
+  color: #fff;
+}

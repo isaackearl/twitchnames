@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 import axios from "axios";
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -80,7 +81,10 @@ const app = new Vue({
                 search: vm.search,
             })
                 .then(function (response) {
-                    vm.usernameList.push(vm.search);
+                    console.log(vm.usernameList);
+                    vm.usernameList.push({
+                        username: vm.search
+                    });
                     vm.search = '';
                     vm.hasError = false;
                     vm.showButton = false;

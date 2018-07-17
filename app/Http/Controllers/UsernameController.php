@@ -37,7 +37,7 @@ class UsernameController extends Controller
      */
     public function index()
     {
-        return Auth::user()->usernames->pluck('username');
+        return Auth::user()->usernames;
     }
 
     /**
@@ -80,7 +80,7 @@ class UsernameController extends Controller
 
         $userNameModel->delete();
 
-        return Auth::user()->usernames->pluck('username');
+        return Auth::user()->usernames;
     }
 
 }

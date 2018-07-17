@@ -50,9 +50,16 @@
                                 <div class="panel-heading panel-title">Saved Usernames</div>
                                 <!-- List group -->
                                 <ul class="list-group">
-                                    <li class="list-group-item" v-for="username in usernameList">
-                                        <span class="col-md-11">@{{username}}</span>
-                                        <span v-on:click="deleteUsername(username)" class="glyphicon glyphicon-remove btn-danger btn-xs"></span>
+                                    <li class="list-group-item"
+                                        :class="{ 'is-success': username.is_available || username.has_been_found}"
+                                        v-for="username in usernameList">
+                                        <span class="col-md-11" v-if="username.is_available">@{{username.username}} is available! <a
+                                                    href="https://www.twitch.tv/settings/profile">Go to twitch to claim it!</a></span>
+                                        <span class="col-md-11"
+                                              v-else-if="!username.is_available && username.has_been_found">Username '@{{username.username}}' found @{{ username.human_readable_found_date }}</span>
+                                        <span class="col-md-11" v-else>@{{username.username}}</span>
+                                        <span v-on:click="deleteUsername(username.username)"
+                                              class="glyphicon glyphicon-remove btn-danger btn-xs"></span>
                                     </li>
 
                                 </ul>
