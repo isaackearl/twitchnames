@@ -40,7 +40,8 @@ class SearchUsernames extends Command
     public function handle()
     {
         $this->comment('starting search...');
-        $usernames = Username::where('found_count', '<', 3)->get();
+
+        $usernames = Username::where('found_date', '=', null)->orWhere('found_date', '>', Carbon::now()->subDays(3))->get();
 
         foreach ($usernames as $username) {
             $job = (new SearchUsername($username))
