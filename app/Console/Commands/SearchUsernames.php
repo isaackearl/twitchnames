@@ -14,7 +14,7 @@ class SearchUsernames extends Command
      *
      * @var string
      */
-    protected $signature = 'usernames:search';
+    protected $signature = 'usernames:search {--hours=12 : The number of hours over which to even disperse the jobs}';
 
     /**
      * The console command description.
@@ -43,16 +43,22 @@ class SearchUsernames extends Command
 
         $usernames = Username::where('found_date', '=', null)->orWhere('found_date', '>', Carbon::now()->subDays(3))->get();
 
+        $hours = doubleval($this->option('hours'));
+        $seconds = $hours * 3600;
+        $usernameCount = count($usernames);
+        $secondsPerName = intVal(round($seconds / $usernameCount));
+        $secondModifier = 0;
+
         foreach ($usernames as $username) {
             $job = (new SearchUsername($username))
                 ->delay(
                     Carbon::now()
-                        ->addMinutes(rand(0, 719))
-                        ->addSeconds(rand(0, 59))
+                        ->addSeconds($secondModifier)
                 );
 
             dispatch($job);
             $this->comment('dispatching search job for ' . $username->username);
+            $secondModifier += $secondsPerName;
         }
 
         $this->comment('Done');
