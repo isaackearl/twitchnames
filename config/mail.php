@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'twitch.username.checker@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'isaac@twitchusernames.com'),
         'name' => env('MAIL_FROM_NAME', 'Twitchusernames'),
     ],
 

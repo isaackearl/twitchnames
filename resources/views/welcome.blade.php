@@ -34,7 +34,7 @@
                             searching for the same username. Once notifications of availability are sent out, it is
                             first come first serve, so be sure to snatch your desired username quickly.</p>
                         <b>Any other question, or comments?</b>
-                        <p>Feel free to <a href="mailto:twitch.username.checker@gmail.com">send me a message</a>. I try
+                        <p>Feel free to <a href="mailto:isaac@twitchusernames.com">send me a message</a>. I try
                             and check and respond when I can.</p>
                         <b>Wow thanks! Is this free to use?</b>
                         <p>Of course, however if you wish to donate after you actually get a name you are waiting for...
