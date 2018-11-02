@@ -41,7 +41,7 @@ class SearchUsernames extends Command
     {
         $this->comment('starting search...');
 
-        $usernames = Username::where('found_date', '=', null)->orWhere('found_date', '>', Carbon::now()->subDays(3))->get();
+        $usernames = Username::where('found_date', '=', null)->get();
 
         $hours = doubleval($this->option('hours'));
         $seconds = $hours * 3600;
