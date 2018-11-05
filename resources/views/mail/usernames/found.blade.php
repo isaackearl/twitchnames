@@ -8,10 +8,10 @@ Grab it quick before someone else does!
 Go to Twitch to claim it now!
 @endcomponent
 
-If you would like emails about this username to stop, please remove this username from your saved list.
+If you would like emails about this username to stop, please UNSUBSCRIBE by removing this username from your saved list.
 
 @component('mail::button', ['url' => $searchUrl])
-Saved usernames
+Username List
 @endcomponent
 
 Thank you for using my application.  If you get the username that you are searching for, please consider donating! https://paypal.me/isaackearl
