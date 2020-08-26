@@ -14,7 +14,6 @@ class UsernameFound extends Notification implements ShouldQueue
     /**
      * @var
      */
-
     private $username;
 
     /**
@@ -30,7 +29,8 @@ class UsernameFound extends Notification implements ShouldQueue
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed $notifiable
+     * @param mixed $notifiable
+     *
      * @return array
      */
     public function via($notifiable)
@@ -41,18 +41,19 @@ class UsernameFound extends Notification implements ShouldQueue
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed $notifiable
+     * @param mixed $notifiable
+     *
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        return (new MailMessage())
             ->success()
             ->subject('Twitch username now available!')
             ->markdown('mail.usernames.found', [
                 'twitchUrl' => 'https://www.twitch.tv/settings/profile',
-                'username' => $this->username,
-                'searchUrl' => route('search')
+                'username'  => $this->username,
+                'searchUrl' => route('search'),
             ]);
     }
 }

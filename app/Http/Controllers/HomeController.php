@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Username;
 
 class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
      */
     public function __construct()
     {
@@ -31,6 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $foundNameCount = Username::withTrashed()->whereHasBeenFound(true)->count();
+
         return view('welcome', ['foundNameCount' => $foundNameCount]);
     }
 }

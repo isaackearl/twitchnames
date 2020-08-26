@@ -10,14 +10,14 @@ use Illuminate\Http\JsonResponse;
 
 class UsernameController extends Controller
 {
-
     /**
      * @param UsernameValidationRequest $usernameValidationRequest
+     *
      * @return JsonResponse
      */
     public function search(UsernameValidationRequest $usernameValidationRequest)
     {
-        $response = \Curl::to('https://passport.twitch.tv/usernames/' . $usernameValidationRequest->get('search'))->returnResponseObject()->get();
+        $response = \Curl::to('https://passport.twitch.tv/usernames/'.$usernameValidationRequest->get('search'))->returnResponseObject()->get();
 
         switch ($response->status) {
             case 200:
@@ -42,6 +42,7 @@ class UsernameController extends Controller
 
     /**
      * @param UsernameValidationRequest $usernameValidationRequest
+     *
      * @return JsonResponse
      */
     public function store(UsernameValidationRequest $usernameValidationRequest)
@@ -56,13 +57,13 @@ class UsernameController extends Controller
 
         if ($user->usernames->count() >= $user->username_limit) {
             return new JsonResponse([
-                'message' => 'Sorry!  There is a ' . $user->username_limit . ' username limit per user'
+                'message' => 'Sorry!  There is a '.$user->username_limit.' username limit per user',
             ], 422);
         }
 
         Username::withTrashed()->firstOrCreate([
-            'user_id' => $user->id,
-            'username' => $userName
+            'user_id'  => $user->id,
+            'username' => $userName,
         ])->restore();
 
         return new JsonResponse(['message' => 'Saved!'], 200);
@@ -70,6 +71,7 @@ class UsernameController extends Controller
 
     /**
      * @param $userName
+     *
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection
      */
     public function destroy($userName)
@@ -82,5 +84,4 @@ class UsernameController extends Controller
 
         return Auth::user()->usernames;
     }
-
 }

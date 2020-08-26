@@ -6,17 +6,18 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 /**
- * App\User
+ * App\User.
  *
- * @property int $id
- * @property string $email
- * @property string $password
- * @property string|null $remember_token
+ * @property int                             $id
+ * @property string                          $email
+ * @property string                          $password
+ * @property string|null                     $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property int $username_limit
+ * @property int                             $username_limit
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Username[] $usernames
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User query()
@@ -41,7 +42,7 @@ class User extends Authenticatable
     protected $fillable = [
         'email',
         'password',
-        'username_limit'
+        'username_limit',
     ];
 
     /**

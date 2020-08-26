@@ -6,20 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * App\Username
+ * App\Username.
  *
- * @property int $id
- * @property string $username
- * @property int $user_id
- * @property bool $is_available
+ * @property int                             $id
+ * @property string                          $username
+ * @property int                             $user_id
+ * @property bool                            $is_available
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $deleted_at
- * @property bool $has_been_found
+ * @property string|null                     $deleted_at
+ * @property bool                            $has_been_found
  * @property \Illuminate\Support\Carbon|null $found_date
- * @property int $found_count
+ * @property int                             $found_count
  * @property-read mixed $human_readable_found_date
  * @property-read \App\User $user
+ *
  * @method static bool|null forceDelete()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Username newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Username newQuery()
@@ -42,7 +43,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Username extends Model
 {
-
     use SoftDeletes;
 
     protected $dates = ['found_date'];
@@ -50,12 +50,12 @@ class Username extends Model
 
     protected $fillable = [
         'user_id',
-        'username'
+        'username',
     ];
 
     protected $casts = [
         'has_been_found' => 'boolean',
-        'is_available' => 'boolean',
+        'is_available'   => 'boolean',
     ];
 
     /**
@@ -68,8 +68,9 @@ class Username extends Model
 
     public function getHumanReadableFoundDateAttribute()
     {
-        if ($this->found_date)
+        if ($this->found_date) {
             return $this->found_date->diffForHumans();
+        }
 
         return null;
     }

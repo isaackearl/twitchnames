@@ -24,7 +24,6 @@ class LimitUsernames extends Command
 
     /**
      * Create a new command instance.
-     *
      */
     public function __construct()
     {
@@ -42,7 +41,6 @@ class LimitUsernames extends Command
         // for each user, count how many usernames they have set
         foreach (User::all() as $user) {
             /** @var User $user */
-
             $usernameCount = $user->usernames->count();
 
             if ($usernameCount > $usernameLimit) {

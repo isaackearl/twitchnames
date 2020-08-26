@@ -32,7 +32,6 @@ class RegisterController extends Controller
 
     /**
      * Create a new controller instance.
-     *
      */
     public function __construct()
     {
@@ -42,13 +41,14 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'email' => 'required|email|max:255|unique:users',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -56,15 +56,16 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return \Illuminate\Database\Eloquent\Model
      */
     protected function create(array $data)
     {
         return User::create([
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'username_limit' => Config::get('app.username_limit')
+            'email'          => $data['email'],
+            'password'       => bcrypt($data['password']),
+            'username_limit' => Config::get('app.username_limit'),
         ]);
     }
 }

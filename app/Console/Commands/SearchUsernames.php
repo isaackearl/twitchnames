@@ -25,7 +25,6 @@ class SearchUsernames extends Command
 
     /**
      * Create a new command instance.
-     *
      */
     public function __construct()
     {
@@ -46,7 +45,7 @@ class SearchUsernames extends Command
         $hours = doubleval($this->option('hours'));
         $seconds = $hours * 3600;
         $usernameCount = count($usernames);
-        $secondsPerName = intVal(round($seconds / $usernameCount));
+        $secondsPerName = intval(round($seconds / $usernameCount));
         $secondModifier = 0;
 
         foreach ($usernames as $username) {
@@ -57,7 +56,7 @@ class SearchUsernames extends Command
                 );
 
             dispatch($job);
-            $this->comment('dispatching search job for ' . $username->username);
+            $this->comment('dispatching search job for '.$username->username);
             $secondModifier += $secondsPerName;
         }
 

@@ -14,7 +14,10 @@ use Illuminate\Queue\SerializesModels;
 
 class SearchUsername implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     private $username;
 
@@ -35,7 +38,7 @@ class SearchUsername implements ShouldQueue
      */
     public function handle()
     {
-        $response = Curl::to('https://passport.twitch.tv/usernames/' . $this->username->username)->returnResponseObject()->get();
+        $response = Curl::to('https://passport.twitch.tv/usernames/'.$this->username->username)->returnResponseObject()->get();
 
         if ($response->status === 204) {
             $this->username->user->notify(new UsernameFound($this->username));
