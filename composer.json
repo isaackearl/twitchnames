@@ -9,7 +9,7 @@
         "barryvdh/laravel-ide-helper": "^2.3",
         "doctrine/dbal": "^2.5",
         "ixudra/curl": "^6.8",
-        "laravel/framework": "5.5.*",
+        "laravel/framework": "5.8.*",
         "laravel/tinker": "~1.0"
     },
     "require-dev": {
